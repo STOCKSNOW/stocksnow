@@ -13,10 +13,8 @@ export default async function TickerPage({ params }: { params: { ticker: string 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-2 space-y-4">
           <Suspense fallback={<div className="h-72 animate-pulse rounded-2xl bg-panel" />}>
-            {/* Chart is client-side for interactivity */}
             <TickerChart ticker={ticker} />
           </Suspense>
-          {/* Server-side stats for SEO */}
           {/* @ts-expect-error Async Server Component */}
           <KeyStats ticker={ticker} />
         </div>

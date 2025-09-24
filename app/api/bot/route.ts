@@ -26,12 +26,8 @@ export async function POST(req: Request) {
   }
   if (/price|quote|today|now/i.test(question || "")) {
     const q = await getQuote(ticker);
-    return NextResponse.json({ answer:
-      `${ticker.toUpperCase()} is ${q.price} (${q.changePct}% today).`
-    });
+    return NextResponse.json({ answer: `${ticker.toUpperCase()} is ${q.price} (${q.changePct}% today).` });
   }
   const news = await getNews(ticker);
-  return NextResponse.json({ answer:
-    `Top headlines: ${news.slice(0,3).map((n:any)=>n.title).join(" • ")}`
-  });
+  return NextResponse.json({ answer: `Top headlines: ${news.slice(0,3).map((n:any)=>n.title).join(" • ")}` });
 }
