@@ -15,11 +15,9 @@ export default async function TickerPage({ params }: { params: { ticker: string 
           <Suspense fallback={<div className="h-72 animate-pulse rounded-2xl bg-panel" />}>
             <TickerChart ticker={ticker} />
           </Suspense>
-          {/* @ts-expect-error Async Server Component */}
           <KeyStats ticker={ticker} />
         </div>
         <div className="space-y-4">
-          {/* @ts-expect-error Async Server Component */}
           <TickerNews ticker={ticker} />
           <ChatDock ticker={ticker} />
         </div>
